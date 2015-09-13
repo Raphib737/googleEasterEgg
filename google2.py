@@ -1,3 +1,4 @@
+#Challenge 1
 def answer(str):
 	numQueue=[]
 	multList=[]
@@ -39,3 +40,36 @@ def answer(str):
 
 str = "2*4*3+9*3+5"
 print(answer(str))
+
+
+#Challenge 2
+def answers(names):
+	finList=[];
+	dictionary = {}
+
+	for i in range(len(names)):
+		names[i]=[getValue(names[i]),names[i]]
+
+	names = reversed(sorted(names,key=lambda x: (x[0],x[1])))
+
+	for x in names:
+		finList.append(x[1])
+	return finList
+
+
+def getValue(name):
+	alphaDict={}
+	alphabet="abcdefghijklmnopqrstuvwxyz"
+	let_value=1
+
+	for x in alphabet:
+		alphaDict[x] = let_value
+		let_value+=1
+
+	total = 0
+	for x in name:
+		total+=alphaDict[x]
+
+	return total
+
+print answers(["al", "cj"])
